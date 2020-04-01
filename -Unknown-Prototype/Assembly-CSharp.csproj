@@ -63,7 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
+    <Compile Include="Assets\Scripts\Destroy.cs" />
+    <Compile Include="Assets\Scripts\GoingLeft.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\ReceivingScoreAndHealthLoss.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/-Unknown-Prototype/-Unknown-Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
