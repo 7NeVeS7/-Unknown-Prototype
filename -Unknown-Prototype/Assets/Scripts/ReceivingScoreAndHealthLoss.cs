@@ -6,24 +6,27 @@ using UnityEngine.SceneManagement;
 public class ReceivingScoreAndHealthLoss : MonoBehaviour
 {
     [SerializeField]
-    private float _score; //Punktacja gracza która nie może być obniżona
+    private int _score; //Punktacja gracza która nie może być obniżona
     [SerializeField]
-    private float _pointsTaken; //przelicznik punktów podwyższa się gdy gracz zbiera  
+    private int _pointsTaken; //przelicznik punktów podwyższa się gdy gracz zbiera  
     [SerializeField]
-    private float _multiplier = 0.1f;
-    [SerializeField]
-    private float _pointsOnBeginning = 1;
+    private int _multiplier = 10; //wartość mnożnika
+    private int _pointsOnBeginning = 100;
     [SerializeField]
     private int _currentHealth;
     [SerializeField]
     private int _maxHealth = 100;
     [SerializeField]
     private int _healthLoss = 20;
+    public HealthBar healthBar;
+    public Score score;
+    public Multi multi;
 
     private void Start()
     {
         _currentHealth = _maxHealth;
         _pointsTaken = _pointsOnBeginning;
+        healthBar.SetHealth(_maxHealth);
     }
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -32,11 +35,16 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         {
             _score += _pointsTaken;
             _pointsTaken += _multiplier;
-        }else if (hitInfo.tag == "Enemy")
+           score.SetScore(_score);
+           multi.SetMulti(_pointsTaken);
+            healthBar.SetHealth(_currentHealth);
+        }
+        else if (hitInfo.tag == "Enemy")
         {
             _currentHealth -= _healthLoss;
             Check();
             _pointsTaken = _pointsOnBeginning;
+            multi.SetMulti(_pointsTaken);
         }
      }
     private void Check()
@@ -49,7 +57,8 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         {
             Dead();
         }
-     }
+        healthBar.SetHealth(_currentHealth);
+    }
     private void Dead()
     {
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);

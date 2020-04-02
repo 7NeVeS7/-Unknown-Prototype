@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GoingLeft : MonoBehaviour
 {
+
     [SerializeField]
     private float _speed = 5f;
     private Rigidbody2D _rb;
@@ -13,4 +14,5 @@ public class GoingLeft : MonoBehaviour
         _rb = this.GetComponent<Rigidbody2D>();
         _rb.velocity = new Vector2(-_speed, 0);
     }
+
 }

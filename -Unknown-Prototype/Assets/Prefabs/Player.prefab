@@ -147,8 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff57e16d9bfb970428529115f7b58684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Score: 0
-  _points: 1
-  _Multiplier: 0.1
-  _CurrentHealth: 0
-  _MaxHealth: 100
+  _score: 0
+  _pointsTaken: 0
+  _multiplier: 10
+  _currentHealth: 0
+  _maxHealth: 100
+  _healthLoss: 50
+  healthBar: {fileID: 0}
+  score: {fileID: 0}
+  multi: {fileID: 0}
