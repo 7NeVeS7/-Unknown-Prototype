@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class deployColors : MonoBehaviour
-{
-    [SerializeField]
-    private GameObject _redPrefab;
-    [SerializeField]
-    private GameObject _bluePrefab;
-    [SerializeField] 
-    private GameObject _yellowPrefab;
+{ 
     [SerializeField] 
     private float _spawnTime = 1f;
     private Vector2 _screenBounds;
+    [SerializeField]
+    private GameObject[] _Color = new GameObject[3];
     void Start()
     {
         _screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         StartCoroutine(ColorWave());
     }
-    private void _SpawnColor()
+    private void _SpawnColor(int i)
     {
-        GameObject a = Instantiate(_redPrefab) as GameObject;
+        Debug.Log(i);
+        GameObject a = Instantiate(_Color[i]) as GameObject;
         a.transform.position = new Vector2(_screenBounds.x * 2, UnityEngine.Random.Range(-_screenBounds.y, _screenBounds.y));
     }
     IEnumerator ColorWave()
@@ -29,7 +26,7 @@ public class deployColors : MonoBehaviour
         {
             yield return new WaitForSeconds(_spawnTime);
 
-            _SpawnColor();
+            _SpawnColor(UnityEngine.Random.Range(0, 3));
         }
     }
 
