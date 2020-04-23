@@ -24,6 +24,9 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     private SpriteRenderer _rend;
     private Sprite _blueSprite, _yellowSprite, _redSprite;
     private string _myColor;
+    private int i = 0; //zmiana kolorów
+    [SerializeField]
+    private int colorChange =3;
 
     private void Start()
     {   
@@ -33,7 +36,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         _yellowSprite = Resources.Load<Sprite>("yellow");
         _redSprite = Resources.Load<Sprite>("Red");
         Debug.Log(_rend.sprite.name);
-        _rend.sprite = _blueSprite;
+        
         _myColor = _rend.sprite.name;
 
         //Hp settings
@@ -58,6 +61,13 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
             Check();
             _pointsTaken = _pointsOnBeginning;
             multi.SetMulti(_pointsTaken);
+        }
+        i++;
+        if (i == colorChange)
+        {
+            _rend.sprite = _blueSprite;
+            _myColor = _rend.sprite.name;
+            i = 1;
         }
      }
     private void Check()
