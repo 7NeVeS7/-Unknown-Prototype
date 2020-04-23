@@ -23,18 +23,24 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     public Multi multi;
     private SpriteRenderer _rend;
     private Sprite _blueSprite, _yellowSprite, _redSprite;
+    private Sprite[] _color = new Sprite[3];
     private string _myColor;
     private int i = 0; //zmiana kolorów
     [SerializeField]
-    private int colorChange =3;
+    private int _colorChange =3;
 
     private void Start()
     {   
         //sprite settings
         _rend = GetComponent<SpriteRenderer>();
-        _blueSprite = Resources.Load<Sprite>("Blue");
-        _yellowSprite = Resources.Load<Sprite>("yellow");
-        _redSprite = Resources.Load<Sprite>("Red");
+        _color[0] = Resources.Load<Sprite>("Blue");
+        _color[1] = Resources.Load<Sprite>("Yellow");
+        _color[2] = Resources.Load<Sprite>("Red");
+
+
+        //_blueSprite = Resources.Load<Sprite>("Blue");
+        //_yellowSprite = Resources.Load<Sprite>("yellow");
+        //_redSprite = Resources.Load<Sprite>("Red");
         Debug.Log(_rend.sprite.name);
         
         _myColor = _rend.sprite.name;
@@ -63,9 +69,9 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
             multi.SetMulti(_pointsTaken);
         }
         i++;
-        if (i == colorChange)
+        if (i == _colorChange)
         {
-            _rend.sprite = _blueSprite;
+            _rend.sprite = _color[UnityEngine.Random.Range(0, 3)];
             _myColor = _rend.sprite.name;
             i = 1;
         }
