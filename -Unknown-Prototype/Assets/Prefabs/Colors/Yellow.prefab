@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 8429701533154164056, guid: 0068a54ae2da6874a9b617bb470d48ed,
         type: 3}
       propertyPath: m_Name
-      value: Yello
+      value: Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 8429701533154164056, guid: 0068a54ae2da6874a9b617bb470d48ed,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 8429701533154164060, guid: 0068a54ae2da6874a9b617bb470d48ed,
         type: 3}

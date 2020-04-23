@@ -21,9 +21,22 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     public HealthBar healthBar;
     public Score score;
     public Multi multi;
+    private SpriteRenderer _rend;
+    private Sprite _blueSprite, _yellowSprite, _redSprite;
+    private string _myColor;
 
     private void Start()
-    {
+    {   
+        //sprite settings
+        _rend = GetComponent<SpriteRenderer>();
+        _blueSprite = Resources.Load<Sprite>("Blue");
+        _yellowSprite = Resources.Load<Sprite>("yellow");
+        _redSprite = Resources.Load<Sprite>("Red");
+        Debug.Log(_rend.sprite.name);
+        _rend.sprite = _blueSprite;
+        _myColor = _rend.sprite.name;
+
+        //Hp settings
         _currentHealth = _maxHealth;
         _pointsTaken = _pointsOnBeginning;
         healthBar.SetHealth(_maxHealth);
@@ -31,7 +44,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Debug.Log(hitInfo.tag);
-        if (hitInfo.tag == "Collectible")
+        if (hitInfo.tag == _myColor)
         {
             _score += _pointsTaken;
             _pointsTaken += _multiplier;
@@ -39,7 +52,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
            multi.SetMulti(_pointsTaken);
             healthBar.SetHealth(_currentHealth);
         }
-        else if (hitInfo.tag == "Enemy")
+        else if (hitInfo.tag != _myColor)
         {
             _currentHealth -= _healthLoss;
             Check();
