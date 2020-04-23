@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
+    <Compile Include="Assets\Scripts\deployColors.cs" />
     <Compile Include="Assets\Scripts\Destroy.cs" />
     <Compile Include="Assets\Scripts\GoingLeft.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
