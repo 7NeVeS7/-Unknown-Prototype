@@ -64,13 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
+    <Compile Include="Assets\Scripts\deployColors.cs" />
     <Compile Include="Assets\Scripts\Destroy.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GoingLeft.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\Multi.cs" />
+    <Compile Include="Assets\Scripts\Random.cs" />
     <Compile Include="Assets\Scripts\ReceivingScoreAndHealthLoss.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\SpriteChange.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/-Unknown-Prototype/-Unknown-Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

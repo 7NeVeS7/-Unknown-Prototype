@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Collectible
+  - Red
+  - Blue
+  - Yellow
   layers:
   - Default
   - TransparentFX
