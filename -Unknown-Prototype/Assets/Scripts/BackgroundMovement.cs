@@ -1,25 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class BackgroundMovement : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 0.05f;
+    private Rigidbody2D rb2D;
+    private float _thrust = 10.0f;
+
     void Start()
     {
-
+        rb2D = GetComponent<Rigidbody2D>();
+       // transform.position = new Vector2(2.0f, 0);
     }
 
-
-    void Update()
+    void FixedUpdate()
     {
-        moveCharacter();
+        rb2D.AddForce(transform.right * _thrust, ForceMode2D.Force);
     }
-
-    void moveCharacter()
-    {
-        transform.Translate(new Vector2(_speed, 0) *Time.deltaTime);
-    }
-
 }

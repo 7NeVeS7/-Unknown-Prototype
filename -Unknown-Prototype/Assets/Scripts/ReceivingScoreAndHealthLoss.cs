@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ReceivingScoreAndHealthLoss : MonoBehaviour
 {
+    //dane do punktacji
     [SerializeField]
     private int _score; //Punktacja gracza która nie może być obniżona
     [SerializeField]
@@ -12,6 +13,10 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     [SerializeField]
     private int _multiplier = 10; //wartość mnożnika
     private int _pointsOnBeginning = 100;
+    public Score score;
+    public Multi multi;
+
+    //dane do życia
     [SerializeField]
     private int _currentHealth;
     [SerializeField]
@@ -19,8 +24,9 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     [SerializeField]
     private int _healthLoss = 20;
     public HealthBar healthBar;
-    public Score score;
-    public Multi multi;
+
+
+    //dane do zmiany kolorów na dole
     private SpriteRenderer _rend;
     private Sprite _blueSprite, _yellowSprite, _redSprite;
     private Sprite[] _color = new Sprite[3];
@@ -28,6 +34,10 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     private int i = 0; //zmiana kolorów
     [SerializeField]
     private int _colorChange =3;
+
+    //DELEGAT
+    public delegate void SpeedUp();
+    public static event SpeedUp onScore;
 
     private void Start()
     {   
@@ -41,7 +51,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         //_blueSprite = Resources.Load<Sprite>("Blue");
         //_yellowSprite = Resources.Load<Sprite>("yellow");
         //_redSprite = Resources.Load<Sprite>("Red");
-        Debug.Log(_rend.sprite.name);
+        //Debug.Log(_rend.sprite.name);
         
         _myColor = _rend.sprite.name;
 
@@ -52,7 +62,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log(hitInfo.tag);
+        //Debug.Log(hitInfo.tag);
         if (hitInfo.tag == _myColor)
         {
             _score += _pointsTaken;
@@ -60,6 +70,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
            score.SetScore(_score);
            multi.SetMulti(_pointsTaken);
             healthBar.SetHealth(_currentHealth);
+            SpeedingUp(); //DELEGAT
         }
         else if (hitInfo.tag != _myColor)
         {
@@ -91,5 +102,10 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     private void Dead()
     {
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+    }
+    public void SpeedingUp()
+    {
+        if (onScore != null)
+            onScore();
     }
 }

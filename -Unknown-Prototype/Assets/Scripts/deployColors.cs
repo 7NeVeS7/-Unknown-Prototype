@@ -16,7 +16,7 @@ public class deployColors : MonoBehaviour
     }
     private void _SpawnColor(int i)
     {
-        Debug.Log(i);
+        //Debug.Log(i);
         GameObject a = Instantiate(_Color[i]) as GameObject;
         a.transform.position = new Vector2(_screenBounds.x * 2, UnityEngine.Random.Range(-_screenBounds.y, _screenBounds.y));
     }

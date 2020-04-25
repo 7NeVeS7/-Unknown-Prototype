@@ -12,10 +12,10 @@ public class Multi : MonoBehaviour
     public void SetMulti(int Multi)
     {
         _multi = Multi;
-        Debug.Log(Multi);
+        //Debug.Log(Multi);
         _multi /= 100;
 
-        Debug.Log(Multi);
+        //Debug.Log(Multi);
         multiText.text = "x" + _multi.ToString();
     }
 }
