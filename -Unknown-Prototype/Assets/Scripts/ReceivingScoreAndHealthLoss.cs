@@ -95,14 +95,11 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         }
         else if (_currentHealth <= 0)
         {
-            Dead();
+            LevelManager.Instance.Dead();
         }
         healthBar.SetHealth(_currentHealth);
     }
-    private void Dead()
-    {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-    }
+   
     public void SpeedingUp()
     {
         if (onScore != null)

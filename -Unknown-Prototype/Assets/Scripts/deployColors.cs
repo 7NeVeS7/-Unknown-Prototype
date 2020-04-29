@@ -9,6 +9,7 @@ public class deployColors : MonoBehaviour
     private Vector2 _screenBounds;
     [SerializeField]
     private GameObject[] _Color = new GameObject[3];
+    
     void Start()
     {
         _screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
