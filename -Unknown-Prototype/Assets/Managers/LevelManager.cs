@@ -6,6 +6,6 @@ public class LevelManager : MonoSingleton<LevelManager>
 {
     public void Dead()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single); //zmienić na indeksy
     }
 }

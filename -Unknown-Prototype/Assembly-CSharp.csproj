@@ -70,7 +70,6 @@
     <Compile Include="Assets\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\BackgroundMovement.cs" />
     <Compile Include="Assets\Scripts\deployColors.cs" />
-    <Compile Include="Assets\Scripts\Destroy.cs" />
     <Compile Include="Assets\Scripts\GoingLeft.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />

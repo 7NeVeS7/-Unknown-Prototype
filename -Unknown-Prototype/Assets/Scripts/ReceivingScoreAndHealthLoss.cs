@@ -13,7 +13,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     [SerializeField]
     private int _multiplier = 10; //wartość mnożnika
     private int _pointsOnBeginning = 100;
-    public Score score;
+    public Score score; //public!!
     public Multi multi;
 
     //dane do życia
@@ -38,12 +38,12 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     //DELEGAT
     public delegate void SpeedUp();
     public static event SpeedUp onScore;
-
+    //DELEGAT
     private void Start()
     {   
         //sprite settings
         _rend = GetComponent<SpriteRenderer>();
-        _color[0] = Resources.Load<Sprite>("Blue");
+        _color[0] = Resources.Load<Sprite>("Blue"); 
         _color[1] = Resources.Load<Sprite>("Yellow");
         _color[2] = Resources.Load<Sprite>("Red");
 
@@ -82,9 +82,9 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         i++;
         if (i == _colorChange)
         {
-            _rend.sprite = _color[UnityEngine.Random.Range(0, 3)];
+            _rend.sprite = _color[Random.Range(0, 3)];
             _myColor = _rend.sprite.name;
-            i = 1;
+            i = 0;
         }
      }
     private void Check()

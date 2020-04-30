@@ -9,26 +9,32 @@ public class deployColors : MonoBehaviour
     private Vector2 _screenBounds;
     [SerializeField]
     private GameObject[] _Color = new GameObject[3];
-    
+    private float _speed = 0;
+    private float _horizontal = 15f;
+    private float _vetrical = 4.3f;
+
     void Start()
     {
-        _screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        _screenBounds = (new Vector2(_horizontal, _vetrical)); 
         StartCoroutine(ColorWave());
+        //FastenTheCircle();
+        Debug.Log(_screenBounds.y +  -_screenBounds.y);
+
     }
     private void _SpawnColor(int i)
     {
         //Debug.Log(i);
         GameObject a = Instantiate(_Color[i]) as GameObject;
-        a.transform.position = new Vector2(_screenBounds.x * 2, UnityEngine.Random.Range(-_screenBounds.y, _screenBounds.y));
+        a.transform.position = new Vector2(_screenBounds.x * 2, Random.Range(-_screenBounds.y, _screenBounds.y));
     }
     IEnumerator ColorWave()
     {
         while (true)
         {
             yield return new WaitForSeconds(_spawnTime);
-
-            _SpawnColor(UnityEngine.Random.Range(0, 3));
+            _SpawnColor(Random.Range(0, 3));
         }
     }
-
+  
+    
 }
