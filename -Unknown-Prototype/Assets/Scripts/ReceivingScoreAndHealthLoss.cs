@@ -95,7 +95,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
         }
         else if (_currentHealth <= 0)
         {
-            LevelManager.Instance.Dead();
+            LevelManager.Instance.FirstLevel();
         }
         healthBar.SetHealth(_currentHealth);
     }

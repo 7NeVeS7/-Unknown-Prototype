@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoSingleton<LevelManager>
 {
-    public void Dead()
+    public void FirstLevel()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single); //zmienić na indeksy
+        SceneManager.LoadScene(0, LoadSceneMode.Single); //zmienić na indeksy
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
