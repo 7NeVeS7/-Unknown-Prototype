@@ -6,11 +6,16 @@ public class LevelManager : MonoSingleton<LevelManager>
 {
     public void FirstLevel()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single); //zmienić na indeksy
+        SceneManager.LoadScene(1, LoadSceneMode.Single); //zmienić na indeksy
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
     public void QuitGame()
     {
         Application.Quit();
     }
+    
 
 }
