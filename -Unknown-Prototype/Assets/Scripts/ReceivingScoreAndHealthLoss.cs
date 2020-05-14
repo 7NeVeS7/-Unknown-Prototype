@@ -13,7 +13,7 @@ public class ReceivingScoreAndHealthLoss : MonoBehaviour
     [SerializeField]
     private int _multiplier = 10; //wartość mnożnika
     private int _pointsOnBeginning = 100;
-    public Score score; //public!!
+    public Score score;
     public Multi multi;
 
     //dane do życia
